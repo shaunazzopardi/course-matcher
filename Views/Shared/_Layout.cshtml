@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - TCFM.COM</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css/bootstrap.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/js")
+
+    @*<link type="text/css" rel="stylesheet"
+          href='<%= Server.ResolveClientUrl("~/Content/bootstrap.css") %>' />
+    <link type="text/css" rel="stylesheet"
+          href='<%= Server.ResolveClientUrl("~/Content/easydropdown.metro.css") %>' />
+    <link type="text/css" rel="stylesheet"
+          href='<%= Server.ResolveClientUrl("~/Content/select2-bootstrap.css") %>' />
+    <link type="text/css" rel="stylesheet"
+          href='<%= Server.ResolveClientUrl("~/Content/site.css") %>' />
+    <script type="text/javascript"
+            src='<%= Server.ResolveClientUrl("~/Scripts/dynamicoptionlist.js") %>'></script>
+    <script type="text/javascript"
+            src='<%= Server.ResolveClientUrl("~/Scripts/select2.js") %>'></script>
+    <script type="text/javascript"
+            src='<%= Server.ResolveClientUrl("~/Scripts/jquery.easydropdown.js") %>'></script>*@
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("TCFM.COM", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Start", "Index", "Start")</li>
+                    <li>@Html.ActionLink("About", "Index", "About")</li>
+                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - TCFM.COM - <a href="http://shaunazzopardi.com">Shaun Azzopardi</a></p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

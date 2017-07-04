@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Courses";
+}
+
+@using CourseHelper.External.Models;
+@model IEnumerable<CourseHelper.External.Models.Course>
+<h2>Course List</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Attendance</th>
+        <th>Duration</th>
+    </tr>
+    @foreach (var item in Model)
+    //CourseHelper.External.Models.Course item in Model)
+    {
+        //var item = Model.ToList()[20];
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attendance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+        </tr>
+    }
+</table>  

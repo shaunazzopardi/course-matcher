@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "Start";
+}
+
+<body>
+
+    <div class="row">
+        
+        <div class="col-sm-5 col-xs-12">
+
+            @using (Html.BeginForm("FindCourses", "Courses", FormMethod.Post))
+            {
+                <h3>A Levels</h3>
+
+                @Html.DropDownList("selectedALevel1", (SelectList)ViewBag.ALevels1, "Please select subject");
+                @Html.DropDownList("selectedALevelMark1", (SelectList)ViewBag.Marks1);
+                <br />
+                <br />
+                @Html.DropDownList("selectedALevel2", (SelectList)ViewBag.ALevels2, "Please select subject");
+                @Html.DropDownList("selectedALevelMark2", (SelectList)ViewBag.Marks2);
+                <br />
+                <br />
+                <h3>Intermediates</h3>
+                @Html.DropDownList("IntermediatesSOK", new SelectList(new List<string>() { "SOK" }));
+                @Html.DropDownList("IntermediatesMarkSOK", (SelectList)ViewBag.Marks3);
+                <br />
+                <br />
+                @Html.DropDownList("selectedIntermediate1", (SelectList)ViewBag.Intermediates1, "Please select subject");
+                @Html.DropDownList("selectedIntermediateMark1", (SelectList)ViewBag.Marks4);
+                <br />
+                <br />
+                @Html.DropDownList("selectedIntermediate2", (SelectList)ViewBag.Intermediates2, "Please select subject");
+                @Html.DropDownList("selectedIntermediateMark2", (SelectList)ViewBag.Marks5);
+                <br />
+                <br />
+                @Html.DropDownList("selectedIntermediate3", (SelectList)ViewBag.Intermediates3, "Please select subject");
+                @Html.DropDownList("selectedIntermediateMark3", (SelectList)ViewBag.Marks6);
+                <br />
+                <br />
+                <input class="button_text" type="submit" name="Submit" value="Submit" />
+
+            }
+
+            <div class="error-box">
+                @if (ViewBag.error == true)
+                {
+                    <p>
+                        <h3>Error:</h3>
+                        @ViewBag.errorMessage
+                    </p>
+                }
+            </div>
+
+            <div class="points-box">
+                @if (ViewBag.aPrioriCriteriaSat == true)
+                {
+                    <p>
+                        <h3>@ViewBag.criteriaSatisfactionArray(6):</h3>
+                        <ol>
+                            <li>Pass in Group 1 subject: @ViewBag.criteriaSatisfactionArray(1)</li>
+                            <li>Pass in Group 2 subject: @ViewBag.criteriaSatisfactionArray(2)</li>
+                            <li>Pass in Group 3 subject: @ViewBag.criteriaSatisfactionArray(3)</li>
+                            <li>Pass in SOK: @ViewBag.criteriaSatisfactionArray(4)</li>
+                            <li>More than 44 points: @ViewBag.criteriaSatisfactionArray(5)</li>
+                        </ol>
+                    </p>
+                }
+            </div>
+        </div>
+        </br>
+        </br>
+        <p>Remember that you need to choose one subject each from Group 1, 2 and 3; with the rest from any of the four groups.</p>
+
+        <div class="col-sm-3 col-xs-12">
+            <p>
+                <h3>Group 1:</h3>
+                <ul>
+                    <li>English</li>
+                    <li>Maltese</li>
+                    <li>Arabic</li>
+                    <li>French</li>
+                    <li>German</li>
+                    <li>Greek</li>
+                    <li>Italian</li>
+                    <li>Latin</li>
+                    <li>Russian</li>
+                    <li>Spanish</li>
+                </ul>
+            </p>
+            <p>
+                <h3>Group 2:</h3>
+                <ul>
+                    <li>Accounting</li>
+                    <li>Classical Studies</li>
+                    <li>Economics</li>
+                    <li>Geography</li>
+                    <li>History</li>
+                    <li>Marketing</li>
+                    <li>Philosophy</li>
+                    <li>Psychology</li>
+                    <li>Religious Knowledge</li>
+                    <li>Sociology</li>
+                </ul>
+            </p>
+        </div>
+
+        <div class="col-sm-3 col-xs-12">
+            <p>
+                <h3>Group 3:</h3>
+                <ul>
+                    <li>Applied Mathematics/Mechanics</li>
+                    <li>Biology</li>
+                    <li>Chemistry</li>
+                    <li>Environmental Science</li>
+                    <li>Physics</li>
+                    <li>Pure Mathematics</li>
+                </ul>
+            </p>
+            <p>
+                <h3>Group 4:</h3>
+                <ul>
+                    <li>Art</li>
+                    <li>Computing</li>
+                    <li>Engineering Drawing</li>
+                    <li>Graphical Communication</li>
+                    <li>Home Economics and Human Ecology/Home Economics</li>
+                    <li>Information Technology/IT</li>
+                    <li>Music</li>
+                    <li>Physical Education</li>
+                    <li>Theatre and Performance/Theatre</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+</body>
